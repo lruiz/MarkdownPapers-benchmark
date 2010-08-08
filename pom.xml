@@ -18,14 +18,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.tautua.markdownpapers.benchmarks</groupId>
-    <artifactId>markdownpapers-benchmarks</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>org.tautua.markdownpapers</groupId>
+    <artifactId>markdownpapers-benchmark</artifactId>
+    <version>0.2.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>markdownpapers-benchmarks</name>
+    <name>markdownpapers-benchmark</name>
     <url>http://markdown.tautua.org</url>
 
     <repositories>
+        <!-- pegdown repo -->
         <repository>
             <id>scala-tools</id>
             <url>http://scala-tools.org/repo-releases</url>

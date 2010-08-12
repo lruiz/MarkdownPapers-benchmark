@@ -27,7 +27,7 @@
     <param name="japex.numberOfThreads" value="2"/>
     <param name="japex.runTime" value="3" />
     <param name="japex.chartType" value="barchart" />
-
+<!--
     <driver name="MarkdownPapersDriver">
         <param name="Description" value="Driver for MarkdownPapers"/>
         <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.MarkdownPapersDriver"/>
@@ -36,6 +36,7 @@
         <param name="Description" value="Driver for MarkdownPapers using IO"/>
         <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.MarkdownPapersIODriver"/>
     </driver>
+-->
     <driver name="MarkdownJDriver">
         <param name="Description" value="Driver for MarkdownJ"/>
         <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.MarkdownJDriver"/>
@@ -43,6 +44,14 @@
     <driver name="PegdownDriver">
         <param name="Description" value="Driver for Pegdown"/>
         <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.PegdownDriver"/>
+    </driver>
+    <driver name="MarkdownPapersDriver">
+        <param name="Description" value="Driver for MarkdownPapers"/>
+        <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.MarkdownPapersDriver"/>
+    </driver>
+    <driver name="MarkdownPapersIODriver">
+        <param name="Description" value="Driver for MarkdownPapers using IO"/>
+        <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.MarkdownPapersIODriver"/>
     </driver>
 
     <testCase name="Markdown Documentation - Syntax.text">

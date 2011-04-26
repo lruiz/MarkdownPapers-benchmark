@@ -28,7 +28,6 @@ import java.io.IOException;
 import static org.tautua.markdownpapers.benchmarks.Util.slurp;
 
 public class PegdownDriver extends JapexDriverBase {
-    private PegDownProcessor parser;
     private String content;
 
     @Override
@@ -36,7 +35,6 @@ public class PegdownDriver extends JapexDriverBase {
 
         String fileName = testCase.getParam("input");
         File file = new File(fileName);
-        parser = new PegDownProcessor();
         try {
             content = slurp(new FileReader(file));
         } catch (FileNotFoundException e) {
@@ -57,6 +55,7 @@ public class PegdownDriver extends JapexDriverBase {
     }
 
     public void transform() {
+        PegDownProcessor parser = new PegDownProcessor();
         String output = parser.markdownToHtml(content);
     }
 }

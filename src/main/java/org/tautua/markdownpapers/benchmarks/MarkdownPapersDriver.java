@@ -19,7 +19,6 @@ package org.tautua.markdownpapers.benchmarks;
 import com.sun.japex.JapexDriverBase;
 import com.sun.japex.TestCase;
 import org.tautua.markdownpapers.Markdown;
-import org.tautua.markdownpapers.grammar.ParseException;
 
 import java.io.*;
 

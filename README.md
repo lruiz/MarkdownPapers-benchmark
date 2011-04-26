@@ -6,10 +6,6 @@ This benchmark includes:
 2. [Pegdown](http://github.com/sirthias/pegdown)
 3. [MarkdonwJ](http://www.markdownj.org)
 
-At the moment Pegdown is not distributed through a maven repository, so the binary is included and you have to install
-it manually.
+To execute the benchmark type in the command line:
 
-    mvn install:install-file -Dfile=lib/parboiled-0.9.7.3.jar -DgroupId=org.parboiled -DartifactId=parboiled -Dversion=0.9.7.3 -DcreateChecksum=true -Dpackaging=jar
-    mvn install:install-file -Dfile=lib/pegdown-0.8.5.1.jar -DgroupId=org.pegdown -DartifactId=pegdown -Dversion=0.8.5.1 -DcreateChecksum=true -Dpackaging=jar
-
-
+> mvn integration-test

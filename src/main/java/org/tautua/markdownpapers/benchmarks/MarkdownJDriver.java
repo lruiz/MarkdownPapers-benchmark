@@ -29,7 +29,6 @@ import java.io.IOException;
 import static org.tautua.markdownpapers.benchmarks.Util.*;
 
 public class MarkdownJDriver extends JapexDriverBase {
-    private MarkdownProcessor parser;
     private String content;
 
     @Override
@@ -37,7 +36,6 @@ public class MarkdownJDriver extends JapexDriverBase {
 
         String fileName = testCase.getParam("input");
         File file = new File(fileName);
-        parser = new MarkdownProcessor();
         try {
             content = slurp(new FileReader(file));
         } catch (FileNotFoundException e) {
@@ -58,6 +56,7 @@ public class MarkdownJDriver extends JapexDriverBase {
     }
 
     public void transform() {
+        MarkdownProcessor parser = new MarkdownProcessor();;
         String output = parser.markdown(content);
     }
 }

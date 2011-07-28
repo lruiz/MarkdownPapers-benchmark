@@ -25,8 +25,7 @@ import java.io.*;
 import static org.tautua.markdownpapers.benchmarks.Util.slurp;
 
 public class MarkdownPapersDriver extends JapexDriverBase {
-    private Reader reader;
-    private Writer writer;
+    private String content;
 
     @Override
     public void prepare(TestCase testCase) {
@@ -35,8 +34,7 @@ public class MarkdownPapersDriver extends JapexDriverBase {
             File file = new File(fileName);
 
             // reading from file a put the content in memory
-            reader = new StringReader(slurp(new FileReader(file)));
-            writer = new StringWriter();
+            content = slurp(new FileReader(file));
         } catch (FileNotFoundException e) {
             throw new IllegalArgumentException(e);
         } catch (IOException e) {
@@ -55,11 +53,12 @@ public class MarkdownPapersDriver extends JapexDriverBase {
     }
 
     public void transform() {
+        Reader reader = new StringReader(content);
+        Appendable writer = new StringBuilder();
         try {
             Markdown md = new Markdown();
             md.transform(reader, writer);
             reader.close();
-            writer.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

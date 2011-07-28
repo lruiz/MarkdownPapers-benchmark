@@ -18,12 +18,12 @@
     <param name="japex.reportsDirectory" value="target/japex" />
     <param name="japex.classPath" value="target/classes" />
     <param name="japex.classPath" value="target/test-classes" />
-    <param name="japex.classPath" value="target/*.jar" />    
+    <param name="japex.classPath" value="target/*.jar" />
     <param name="japex.classPath" value="target/dependency/*.jar" />
     <param name="japex.resultUnit" value="tps" />
     <param name="japex.continueOnError" value="false"/>
     <param name="japex.plotGroupSize" value="20" />
-    <param name="japex.warmupTime" value="2" />
+    <param name="japex.warmupTime" value="5" />
     <param name="japex.numberOfThreads" value="2"/>
     <param name="japex.runTime" value="3" />
     <param name="japex.chartType" value="barchart" />
@@ -36,14 +36,14 @@
         <param name="Description" value="Driver for Pegdown"/>
         <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.PegdownDriver"/>
     </driver>
+    <driver name="TxtmarkDriver">
+        <param name="Description" value="Driver for Txtmark"/>
+        <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.TxtmarkDriver"/>
+    </driver>
 
     <driver name="MarkdownPapersDriver">
         <param name="Description" value="Driver for MarkdownPapers"/>
         <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.MarkdownPapersDriver"/>
-    </driver>
-    <driver name="MarkdownPapersIODriver">
-        <param name="Description" value="Driver for MarkdownPapers using IO"/>
-        <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.MarkdownPapersIODriver"/>
     </driver>
 
     <testCase name="Markdown Documentation - Syntax.text">

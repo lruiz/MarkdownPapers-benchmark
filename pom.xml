@@ -155,8 +155,6 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <japexConfig>${basedir}/src/main/resources/japex-config.xml</japexConfig>
-
         <japex.version>1.2.3</japex.version>
 
         <markdownj.version>0.3.0-1.0.2b4</markdownj.version>

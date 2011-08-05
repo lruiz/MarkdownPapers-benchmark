@@ -54,7 +54,7 @@ public class MarkdownPapersDriver extends JapexDriverBase {
 
     public void transform() {
         Reader reader = new StringReader(content);
-        Appendable writer = new StringBuilder();
+        Writer writer = new StringWriter();
         try {
             Markdown md = new Markdown();
             md.transform(reader, writer);

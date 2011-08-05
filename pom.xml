@@ -53,17 +53,12 @@
         <dependency>
             <groupId>org.markdownj</groupId>
             <artifactId>markdownj</artifactId>
-            <version>0.3.0-1.0.2b4</version>
+            <version>${markdownj.version}</version>
         </dependency>
         <dependency>
             <groupId>org.pegdown</groupId>
             <artifactId>pegdown</artifactId>
             <version>${pegdown.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>txtmark</groupId>
-            <artifactId>txtmark</artifactId>
-            <version>0.5</version>
         </dependency>
         <dependency>
             <groupId>com.tristanhunt</groupId>
@@ -128,7 +123,7 @@
                             <param name="japex.runTime" value="3" />
                             <param name="japex.chartType" value="barchart" />
 
-                            <driver name="MarkdownJDriver">
+                            <driver name="MarkdownJDriver ${markdownj.version}">
                                 <param name="description" value="Driver for MarkdownJ"/>
                                 <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.MarkdownJDriver"/>
                             </driver>
@@ -136,11 +131,7 @@
                                 <param name="description" value="Driver for Pegdown"/>
                                 <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.PegdownDriver"/>
                             </driver>
-                            <driver name="TxtmarkDriver">
-                                <param name="description" value="Driver for Txtmark"/>
-                                <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.TxtmarkDriver"/>
-                            </driver>
-                            <driver name="KnockoffDriver">
+                            <driver name="KnockoffDriver ${knockoff.version}">
                                 <param name="description" value="Driver for Knockoff"/>
                                 <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.KnockoffDriver"/>
                             </driver>
@@ -167,7 +158,9 @@
         <japexConfig>${basedir}/src/main/resources/japex-config.xml</japexConfig>
 
         <japex.version>1.2.3</japex.version>
-        <markdownpapers.version>1.2.0-SNAPSHOT</markdownpapers.version>
+
+        <markdownj.version>0.3.0-1.0.2b4</markdownj.version>
+        <markdownpapers.version>1.1.0</markdownpapers.version>
         <pegdown.version>1.0.2</pegdown.version>
         <knockoff.version>0.7.0-10</knockoff.version>
     </properties>

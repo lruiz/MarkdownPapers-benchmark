@@ -20,7 +20,7 @@
 
     <groupId>org.tautua.markdownpapers</groupId>
     <artifactId>markdownpapers-benchmark</artifactId>
-    <version>0.4.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
     <name>markdownpapers-benchmark</name>
     <url>http://markdown.tautua.org</url>

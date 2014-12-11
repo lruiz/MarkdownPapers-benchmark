@@ -25,20 +25,6 @@
     <name>markdownpapers-benchmark</name>
     <url>http://markdown.tautua.org</url>
 
-    <repositories>
-        <!-- markdownj and pegdown repository -->
-        <repository>
-            <id>scala-tools</id>
-            <url>http://scala-tools.org/repo-releases</url>
-        </repository>
-
-        <!-- knockoff -->
-        <repository>
-            <id>tristanhunt.com</id>
-            <name>Tristan's Repo</name>
-            <url>http://tristanhunt.com:8081/content/groups/public/</url>
-        </repository>
-    </repositories>
     <dependencies>
         <dependency>
             <groupId>com.sun.japex</groupId>
@@ -52,7 +38,7 @@
         </dependency>
         <dependency>
             <groupId>org.markdownj</groupId>
-            <artifactId>markdownj</artifactId>
+            <artifactId>markdownj-core</artifactId>
             <version>${markdownj.version}</version>
         </dependency>
         <dependency>
@@ -62,7 +48,7 @@
         </dependency>
         <dependency>
             <groupId>com.tristanhunt</groupId>
-            <artifactId>knockoff_2.7.7</artifactId>
+            <artifactId>knockoff_2.9.2</artifactId>
             <version>${knockoff.version}</version>
         </dependency>
     </dependencies>
@@ -78,8 +64,8 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -155,11 +141,11 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <japex.version>1.2.3</japex.version>
+        <japex.version>1.2.4</japex.version>
 
-        <markdownj.version>0.3.0-1.0.2b4</markdownj.version>
-        <markdownpapers.version>1.1.0</markdownpapers.version>
-        <pegdown.version>1.0.2</pegdown.version>
-        <knockoff.version>0.7.0-10</knockoff.version>
+        <markdownj.version>0.4</markdownj.version>
+        <markdownpapers.version>1.4.2</markdownpapers.version>
+        <pegdown.version>1.4.2</pegdown.version>
+        <knockoff.version>0.8.1</knockoff.version>
     </properties>
 </project>

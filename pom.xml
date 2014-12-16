@@ -51,6 +51,11 @@
             <artifactId>knockoff_2.9.2</artifactId>
             <version>${knockoff.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.rjeschke</groupId>
+            <artifactId>txtmark</artifactId>
+            <version>${txtmark.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <resources>
@@ -125,6 +130,10 @@
                                 <param name="description" value="MarkdownPapers "/>
                                 <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.MarkdownPapersDriver"/>
                             </driver>
+                            <driver name="TxtmarkDriver ${txtmark.version}">
+                                <param name="description" value="Txtmark "/>
+                                <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.TxtmarkDriver"/>
+                            </driver>
 
                             <testCase name="Markdown Documentation - Syntax.text">
                                 <param name="input" value="target/classes/Markdown Documentation - Syntax.text"/>
@@ -147,5 +156,6 @@
         <markdownpapers.version>1.4.2</markdownpapers.version>
         <pegdown.version>1.4.2</pegdown.version>
         <knockoff.version>0.8.1</knockoff.version>
+        <txtmark.version>0.11</txtmark.version>
     </properties>
 </project>

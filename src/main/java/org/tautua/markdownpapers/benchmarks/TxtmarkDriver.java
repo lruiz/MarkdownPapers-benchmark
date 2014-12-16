@@ -16,42 +16,11 @@
 
 package org.tautua.markdownpapers.benchmarks;
 
-import com.sun.japex.JapexDriverBase;
-import com.sun.japex.TestCase;
 import com.github.rjeschke.txtmark.Processor;
 
-import java.io.*;
+public class TxtmarkDriver extends AbstractDriver {
 
-import static org.tautua.markdownpapers.benchmarks.Util.slurp;
-
-public class TxtmarkDriver extends JapexDriverBase {
-    private String content;
-
-    @Override
-    public void prepare(TestCase testCase) {
-        try {
-            String fileName = testCase.getParam("input");
-            File file = new File(fileName);
-
-            // reading from file a put the content in memory
-            content = slurp(new FileReader(file));
-        } catch (FileNotFoundException e) {
-            throw new IllegalArgumentException(e);
-        } catch (IOException e) {
-            throw new IllegalStateException(e);
-        }
-    }
-
-    @Override
-    public final void warmup(TestCase testCase) {
-        run(testCase);
-    }
-
-    @Override
-    public final void run(TestCase testCase) {
-        transform();
-    }
-
+	@Override
     public void transform() {
 		Processor.process(content);
     }

@@ -16,44 +16,11 @@
 
 package org.tautua.markdownpapers.benchmarks;
 
-import com.sun.japex.JapexDriverBase;
-import com.sun.japex.TestCase;
 import org.pegdown.PegDownProcessor;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-import static org.tautua.markdownpapers.benchmarks.Util.slurp;
-
-public class PegdownDriver extends JapexDriverBase {
-    private String content;
+public class PegdownDriver extends AbstractDriver {
 
     @Override
-    public void prepare(TestCase testCase) {
-
-        String fileName = testCase.getParam("input");
-        File file = new File(fileName);
-        try {
-            content = slurp(new FileReader(file));
-        } catch (FileNotFoundException e) {
-            throw new IllegalArgumentException(e);
-        } catch (IOException e) {
-            throw new IllegalStateException(e);
-        }
-    }
-
-    @Override
-    public final void warmup(TestCase testCase) {
-        run(testCase);
-    }
-
-    @Override
-    public final void run(TestCase testCase) {
-        transform();
-    }
-
     public void transform() {
         PegDownProcessor parser = new PegDownProcessor();
         String output = parser.markdownToHtml(content);

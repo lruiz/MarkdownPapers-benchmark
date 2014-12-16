@@ -16,42 +16,16 @@
 
 package org.tautua.markdownpapers.benchmarks;
 
-import com.sun.japex.JapexDriverBase;
-import com.sun.japex.TestCase;
 import org.tautua.markdownpapers.Markdown;
 
-import java.io.*;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.io.Writer;
 
-import static org.tautua.markdownpapers.benchmarks.Util.slurp;
-
-public class MarkdownPapersDriver extends JapexDriverBase {
-    private String content;
-
-    @Override
-    public void prepare(TestCase testCase) {
-        try {
-            String fileName = testCase.getParam("input");
-            File file = new File(fileName);
-
-            // reading from file a put the content in memory
-            content = slurp(new FileReader(file));
-        } catch (FileNotFoundException e) {
-            throw new IllegalArgumentException(e);
-        } catch (IOException e) {
-            throw new IllegalStateException(e);
-        }
-    }
+public class MarkdownPapersDriver extends AbstractDriver {
 
     @Override
-    public final void warmup(TestCase testCase) {
-        run(testCase);
-    }
-
-    @Override
-    public final void run(TestCase testCase) {
-        transform();
-    }
-
     public void transform() {
         Reader reader = new StringReader(content);
         Writer writer = new StringWriter();

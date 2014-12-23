@@ -7,6 +7,7 @@ This benchmark includes:
 2. [Pegdown](http://github.com/sirthias/pegdown)
 3. [MarkdonwJ](http://www.markdownj.org)
 4. [Knockoff] (http://tristanhunt.com/projects/knockoff/)
+4. [Txtmark] (https://github.com/rjeschke/txtmark)
 
 To execute the benchmark type in the command line:
 

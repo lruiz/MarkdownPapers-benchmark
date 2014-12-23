@@ -17,44 +17,10 @@
 package org.tautua.markdownpapers.benchmarks;
 
 import com.petebevin.markdown.MarkdownProcessor;
-import com.sun.japex.JapexDriverBase;
-import com.sun.japex.TestCase;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+public class MarkdownJDriver extends AbstractDriver {
 
-
-import static org.tautua.markdownpapers.benchmarks.Util.*;
-
-public class MarkdownJDriver extends JapexDriverBase {
-    private String content;
-
-    @Override
-    public void prepare(TestCase testCase) {
-
-        String fileName = testCase.getParam("input");
-        File file = new File(fileName);
-        try {
-            content = slurp(new FileReader(file));
-        } catch (FileNotFoundException e) {
-            throw new IllegalArgumentException(e);
-        } catch (IOException e) {
-            throw new IllegalStateException(e);
-        }
-    }
-
-    @Override
-    public final void warmup(TestCase testCase) {
-        run(testCase);
-    }
-
-    @Override
-    public final void run(TestCase testCase) {
-        transform();
-    }
-
+	@Override
     public void transform() {
         MarkdownProcessor parser = new MarkdownProcessor();;
         String output = parser.markdown(content);

@@ -16,18 +16,13 @@
 
 package org.tautua.markdownpapers.benchmarks;
 
-import scala.xml.XML;
+import com.github.rjeschke.txtmark.Processor;
 
-import java.io.StringWriter;
+public class TxtmarkDriver extends AbstractDriver {
 
-import static com.tristanhunt.knockoff.DefaultDiscounter.knockoff;
-import static com.tristanhunt.knockoff.DefaultDiscounter.toXHTML;
-
-public class KnockoffDriver extends AbstractDriver {
-
-    @Override
+	@Override
     public void transform() {
-        StringWriter w = new StringWriter();
-        XML.write(w,toXHTML(knockoff(content)),"utf-8", false, null);
+		Processor.process(content);
     }
 }
+

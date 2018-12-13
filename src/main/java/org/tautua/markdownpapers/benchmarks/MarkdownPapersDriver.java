@@ -16,19 +16,18 @@
 
 package org.tautua.markdownpapers.benchmarks;
 
-import org.tautua.markdownpapers.Markdown;
-
 import java.io.Reader;
 import java.io.StringReader;
-import java.io.StringWriter;
 import java.io.Writer;
+import org.apache.commons.io.output.StringBuilderWriter;
+import org.tautua.markdownpapers.Markdown;
 
 public class MarkdownPapersDriver extends AbstractDriver {
 
     @Override
     public void transform() {
         Reader reader = new StringReader(content);
-        Writer writer = new StringWriter();
+        Writer writer = new StringBuilderWriter();
         try {
             Markdown md = new Markdown();
             md.transform(reader, writer);

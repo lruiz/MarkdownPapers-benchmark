@@ -32,6 +32,11 @@
             <version>${japex.version}</version>
         </dependency>
         <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
             <groupId>org.tautua.markdownpapers</groupId>
             <artifactId>markdownpapers-core</artifactId>
             <version>${markdownpapers.version}</version>
@@ -42,19 +47,19 @@
             <version>${markdownj.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.pegdown</groupId>
-            <artifactId>pegdown</artifactId>
-            <version>${pegdown.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.tristanhunt</groupId>
-            <artifactId>knockoff_2.9.2</artifactId>
-            <version>${knockoff.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.github.rjeschke</groupId>
             <artifactId>txtmark</artifactId>
             <version>${txtmark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vladsch.flexmark</groupId>
+            <artifactId>flexmark-all</artifactId>
+            <version>${flexmark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.commonmark</groupId>
+            <artifactId>commonmark</artifactId>
+            <version>0.12.1</version>
         </dependency>
     </dependencies>
     <build>
@@ -69,8 +74,8 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -104,35 +109,35 @@
                 <configuration>
                     <japexConfig>
                         <testSuite name="Markdown Test Suite" xmlns="http://www.sun.com/japex/testSuite">
-                            <param name="japex.classPath" value="target/dependency/*.jar" />
-                            <param name="japex.classPath" value="target/classes" />
+                            <param name="japex.classPath" value="target/dependency/*.jar"/>
+                            <param name="japex.classPath" value="target/classes"/>
 
-                            <param name="japex.resultUnit" value="tps" />
-                            <param name="japex.plotGroupSize" value="20" />
-                            <param name="japex.warmupTime" value="2" />
+                            <param name="japex.resultUnit" value="tps"/>
+                            <param name="japex.plotGroupSize" value="20"/>
+                            <param name="japex.warmupTime" value="2"/>
                             <param name="japex.numberOfThreads" value="2"/>
-                            <param name="japex.runTime" value="3" />
-                            <param name="japex.chartType" value="barchart" />
+                            <param name="japex.runTime" value="3"/>
+                            <param name="japex.chartType" value="barchart"/>
 
                             <driver name="MarkdownJDriver ${markdownj.version}">
                                 <param name="description" value="Driver for MarkdownJ"/>
                                 <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.MarkdownJDriver"/>
-                            </driver>
-                            <driver name="PegdownDriver ${pegdown.version}">
-                                <param name="description" value="Driver for Pegdown"/>
-                                <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.PegdownDriver"/>
-                            </driver>
-                            <driver name="KnockoffDriver ${knockoff.version}">
-                                <param name="description" value="Driver for Knockoff"/>
-                                <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.KnockoffDriver"/>
                             </driver>
                             <driver name="MarkdownPapersDriver ${markdownpapers.version}">
                                 <param name="description" value="MarkdownPapers "/>
                                 <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.MarkdownPapersDriver"/>
                             </driver>
                             <driver name="TxtmarkDriver ${txtmark.version}">
-                                <param name="description" value="Txtmark "/>
+                                <param name="description" value="Txtmark"/>
                                 <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.TxtmarkDriver"/>
+                            </driver>
+                            <driver name="FlexmarkDriver ${flexmark.version}">
+                                <param name="description" value="Flexmark"/>
+                                <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.FlexmarkDriver"/>
+                            </driver>
+                            <driver name="CommonmarkDriver ${commonmark.version}">
+                                <param name="description" value="Commonmark"/>
+                                <param name="japex.driverClass" value="org.tautua.markdownpapers.benchmarks.CommonmarkDriver"/>
                             </driver>
 
                             <testCase name="Markdown Documentation - Syntax.text">
@@ -150,12 +155,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.7</java.version>
         <japex.version>1.2.4</japex.version>
 
         <markdownj.version>0.4</markdownj.version>
         <markdownpapers.version>1.4.2</markdownpapers.version>
-        <pegdown.version>1.4.2</pegdown.version>
-        <knockoff.version>0.8.1</knockoff.version>
-        <txtmark.version>0.11</txtmark.version>
+        <knockoff.version>0.8.3</knockoff.version>
+        <txtmark.version>0.13</txtmark.version>
+        <flexmark.version>0.35.0</flexmark.version>
+        <commonmark.version>0.12.1</commonmark.version>
     </properties>
 </project>

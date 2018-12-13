@@ -22,7 +22,7 @@ public class TxtmarkDriver extends AbstractDriver {
 
 	@Override
     public void transform() {
-		Processor.process(content);
+		String result = Processor.process(content);
     }
 }
 
